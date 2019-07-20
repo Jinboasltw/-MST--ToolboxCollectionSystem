@@ -1,0 +1,244 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>lec_17_demo</title>
+      <meta name="generator" content="MATLAB 7.8">
+      <meta name="date" content="2019-07-20">
+      <meta name="m-file" content="lec_17_demo"><style type="text/css">
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content"><pre class="codeinput"><span class="keyword">function</span> varargout = lec_17_demo(varargin)
+<span class="comment">% LEC_17_DEMO M-file for lec_17_demo.fig</span>
+<span class="comment">%      LEC_17_DEMO, by itself, creates a new LEC_17_DEMO or raises the existing</span>
+<span class="comment">%      singleton*.</span>
+<span class="comment">%</span>
+<span class="comment">%      H = LEC_17_DEMO returns the handle to a new LEC_17_DEMO or the handle to</span>
+<span class="comment">%      the existing singleton*.</span>
+<span class="comment">%</span>
+<span class="comment">%      LEC_17_DEMO('CALLBACK',hObject,eventData,handles,...) calls the local</span>
+<span class="comment">%      function named CALLBACK in LEC_17_DEMO.M with the given input arguments.</span>
+<span class="comment">%</span>
+<span class="comment">%      LEC_17_DEMO('Property','Value',...) creates a new LEC_17_DEMO or raises the</span>
+<span class="comment">%      existing singleton*.  Starting from the left, property value pairs are</span>
+<span class="comment">%      applied to the GUI before lec_17_demo_OpeningFcn gets called.  An</span>
+<span class="comment">%      unrecognized property name or invalid value makes property application</span>
+<span class="comment">%      stop.  All inputs are passed to lec_17_demo_OpeningFcn via varargin.</span>
+<span class="comment">%</span>
+<span class="comment">%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one</span>
+<span class="comment">%      instance to run (singleton)".</span>
+<span class="comment">%</span>
+<span class="comment">% See also: GUIDE, GUIDATA, GUIHANDLES</span>
+
+<span class="comment">% Edit the above text to modify the response to help lec_17_demo</span>
+
+<span class="comment">% Last Modified by GUIDE v2.5 20-Jul-2019 15:07:58</span>
+
+<span class="comment">% Begin initialization code - DO NOT EDIT</span>
+gui_Singleton = 1;
+gui_State = struct(<span class="string">'gui_Name'</span>,       mfilename, <span class="keyword">...</span>
+                   <span class="string">'gui_Singleton'</span>,  gui_Singleton, <span class="keyword">...</span>
+                   <span class="string">'gui_OpeningFcn'</span>, @lec_17_demo_OpeningFcn, <span class="keyword">...</span>
+                   <span class="string">'gui_OutputFcn'</span>,  @lec_17_demo_OutputFcn, <span class="keyword">...</span>
+                   <span class="string">'gui_LayoutFcn'</span>,  [] , <span class="keyword">...</span>
+                   <span class="string">'gui_Callback'</span>,   []);
+<span class="keyword">if</span> nargin &amp;&amp; ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+<span class="keyword">else</span>
+    gui_mainfcn(gui_State, varargin{:});
+<span class="keyword">end</span>
+<span class="comment">% End initialization code - DO NOT EDIT</span>
+
+
+<span class="comment">% --- Executes just before lec_17_demo is made visible.</span>
+<span class="keyword">function</span> lec_17_demo_OpeningFcn(hObject, eventdata, handles, varargin)
+<span class="comment">% This function has no output args, see OutputFcn.</span>
+<span class="comment">% hObject    handle to figure</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+<span class="comment">% varargin   command line arguments to lec_17_demo (see VARARGIN)</span>
+
+<span class="comment">% Choose default command line output for lec_17_demo</span>
+handles.output = hObject;
+<span class="comment">% inject</span>
+handles.ht = timer;
+set(handles.ht, <span class="string">'ExecutionMode'</span>, <span class="string">'FixedRate'</span>);
+set(handles.ht, <span class="string">'Period'</span>, 1);
+set(handles.ht, <span class="string">'TimerFcn'</span>, {@dispnow, handles});
+start(handles.ht);
+<span class="comment">% Update handles structure</span>
+guidata(hObject, handles);
+
+<span class="comment">% UIWAIT makes lec_17_demo wait for user response (see UIRESUME)</span>
+<span class="comment">% uiwait(handles.figure1);</span>
+
+
+<span class="comment">% --- Outputs from this function are returned to the command line.</span>
+<span class="keyword">function</span> varargout = lec_17_demo_OutputFcn(hObject, eventdata, handles)
+<span class="comment">% varargout  cell array for returning output args (see VARARGOUT);</span>
+<span class="comment">% hObject    handle to figure</span>
+<span class="comment">% eventdata  reserved - to be defined in a future version of MATLAB</span>
+<span class="comment">% handles    structure with handles and user data (see GUIDATA)</span>
+
+<span class="comment">% Get default command line output from handles structure</span>
+varargout{1} = handles.output;
+
+<span class="keyword">function</span> dispnow(hObject, eventdata, handles)
+set(handles.disptime, <span class="string">'string'</span>, datestr(now))
+</pre><img vspace="5" hspace="5" src="lec_17_demo_01.png" alt=""> <p class="footer"><br>
+            Published with MATLAB&reg; 7.8<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+function varargout = lec_17_demo(varargin)
+% LEC_17_DEMO M-file for lec_17_demo.fig
+%      LEC_17_DEMO, by itself, creates a new LEC_17_DEMO or raises the existing
+%      singleton*.
+%
+%      H = LEC_17_DEMO returns the handle to a new LEC_17_DEMO or the handle to
+%      the existing singleton*.
+%
+%      LEC_17_DEMO('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in LEC_17_DEMO.M with the given input arguments.
+%
+%      LEC_17_DEMO('Property','Value',...) creates a new LEC_17_DEMO or raises the
+%      existing singleton*.  Starting from the left, property value pairs are
+%      applied to the GUI before lec_17_demo_OpeningFcn gets called.  An
+%      unrecognized property name or invalid value makes property application
+%      stop.  All inputs are passed to lec_17_demo_OpeningFcn via varargin.
+%
+%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+%      instance to run (singleton)".
+%
+% See also: GUIDE, GUIDATA, GUIHANDLES
+
+% Edit the above text to modify the response to help lec_17_demo
+
+% Last Modified by GUIDE v2.5 20-Jul-2019 15:07:58
+
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @lec_17_demo_OpeningFcn, ...
+                   'gui_OutputFcn',  @lec_17_demo_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+
+
+% REPLACE_WITH_DASH_DASH- Executes just before lec_17_demo is made visible.
+function lec_17_demo_OpeningFcn(hObject, eventdata, handles, varargin)
+% This function has no output args, see OutputFcn.
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% varargin   command line arguments to lec_17_demo (see VARARGIN)
+
+% Choose default command line output for lec_17_demo
+handles.output = hObject;
+% inject
+handles.ht = timer;
+set(handles.ht, 'ExecutionMode', 'FixedRate');
+set(handles.ht, 'Period', 1);
+set(handles.ht, 'TimerFcn', {@dispnow, handles});
+start(handles.ht);
+% Update handles structure
+guidata(hObject, handles);
+
+% UIWAIT makes lec_17_demo wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+
+
+% REPLACE_WITH_DASH_DASH- Outputs from this function are returned to the command line.
+function varargout = lec_17_demo_OutputFcn(hObject, eventdata, handles) 
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+
+function dispnow(hObject, eventdata, handles)
+set(handles.disptime, 'string', datestr(now))
+
+##### SOURCE END #####
+-->
+   </body>
+</html>
