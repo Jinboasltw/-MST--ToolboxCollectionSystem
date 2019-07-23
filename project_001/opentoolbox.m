@@ -22,7 +22,7 @@ function varargout = opentoolbox(varargin)
 
 % Edit the above text to modify the response to help opentoolbox
 
-% Last Modified by GUIDE v2.5 23-Jul-2019 09:51:59
+% Last Modified by GUIDE v2.5 23-Jul-2019 11:09:31
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -197,3 +197,12 @@ function spm_switch_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 switchspm
+
+
+% --- Executes on button press in html2txt.
+function html2txt_Callback(hObject, eventdata, handles)
+% hObject    handle to html2txt (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+cmd = 'G:\02_extent_toolbox\MST_ToolboxCollectionSystem\project_001\externelTool\html2text-1.0-2009-6-2\Html2Text.exe';
+system(cmd);
