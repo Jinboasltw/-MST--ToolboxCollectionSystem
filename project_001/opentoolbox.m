@@ -22,7 +22,7 @@ function varargout = opentoolbox(varargin)
 
 % Edit the above text to modify the response to help opentoolbox
 
-% Last Modified by GUIDE v2.5 22-Jul-2019 11:34:22
+% Last Modified by GUIDE v2.5 23-Jul-2019 09:51:59
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -189,3 +189,11 @@ function gotowd_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 cd('G:\14_default_wd\')
+
+
+% --- Executes on button press in spm_switch.
+function spm_switch_Callback(hObject, eventdata, handles)
+% hObject    handle to spm_switch (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+switchspm
