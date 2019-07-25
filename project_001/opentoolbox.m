@@ -22,7 +22,7 @@ function varargout = opentoolbox(varargin)
 
 % Edit the above text to modify the response to help opentoolbox
 
-% Last Modified by GUIDE v2.5 23-Jul-2019 11:09:31
+% Last Modified by GUIDE v2.5 25-Jul-2019 19:40:24
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -206,3 +206,70 @@ function html2txt_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 cmd = 'G:\02_extent_toolbox\MST_ToolboxCollectionSystem\project_001\externelTool\html2text-1.0-2009-6-2\Html2Text.exe';
 system(cmd);
+
+
+% --- Executes on button press in close.
+function close_Callback(hObject, eventdata, handles)
+% hObject    handle to close (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+close all
+
+
+% --- Executes on button press in run_brant_auto.
+function run_brant_auto_Callback(hObject, eventdata, handles)
+% hObject    handle to run_brant_auto (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+warning('off')
+addpath(genpath('G:\21_BRANT\brant\brant-master'));
+brant_configure_paths('G:\21_BRANT\brant\spm12');
+warning('on')
+
+
+% --- Executes on button press in run_brant_button.
+function run_brant_button_Callback(hObject, eventdata, handles)
+% hObject    handle to run_brant_button (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+cd('G:\14_default_wd\')
+brant
+
+
+% --- Executes on button press in convert_mnital.
+function convert_mnital_Callback(hObject, eventdata, handles)
+% hObject    handle to convert_mnital (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structu''re with handles and user data (see GUIDATA)
+web('https://bioimagesuiteweb.github.io/webapp/mni2tal.html', '-browser')
+
+
+% --- Executes on button press in openNeurosynth.
+function openNeurosynth_Callback(hObject, eventdata, handles)
+% hObject    handle to openNeurosynth (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+web('http://neurosynth.org','-browser')
+
+
+% --- Executes on button press in run_bnv.
+function run_bnv_Callback(hObject, eventdata, handles)
+% hObject    handle to run_bnv (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+addpath(genpath('G:\22_FF_DefaultNetwork\BrainNetViewer_20181219'))
+BrainNet
+
+
+% --- Executes on button press in run_xjView.
+function run_xjView_Callback(hObject, eventdata, handles)
+% hObject    handle to run_xjView (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+warning('off')
+cd('G:\21_BRANT\brant\brant-master');
+brant_configure_paths('G:\21_BRANT\brant\spm12');
+addpath('G:\02_extent_toolbox\MST_ToolboxCollectionSystem\project_001\externelTool\xjview96\xjview')
+cd('G:\14_default_wd\')
+xjview
+warning('on')
